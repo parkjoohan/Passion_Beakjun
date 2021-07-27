@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 소트인사이드 {
+public class 소트인사이드_1427 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

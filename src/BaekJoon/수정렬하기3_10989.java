@@ -2,9 +2,9 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 수정렬하기3 {
+public class 수정렬하기3_10989 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) extends Ex{
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();
 		int[] arr = new int[10];

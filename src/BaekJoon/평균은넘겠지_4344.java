@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 평균은넘겠지 {
+public class 평균은넘겠지_4344 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();

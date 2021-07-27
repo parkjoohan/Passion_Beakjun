@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.Scanner;
 
-public class 평균점수 {
+public class 평균점수_10039 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

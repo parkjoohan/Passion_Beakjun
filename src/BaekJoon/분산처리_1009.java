@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 분산처리 {
+public class 분산처리_1009 {
 
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
