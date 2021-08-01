@@ -11,7 +11,6 @@ public class 음계_2920 {
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = sc.nextInt();
 		}
-		sc.close();
 		
 		for(int j=0; j<arr.length-1; j++) {
 			if(arr[j] == arr[j+1] + 1) 
@@ -22,7 +21,6 @@ public class 음계_2920 {
 				s = "mixed";
 				break;
 			}
-				
 		}
 		System.out.println(s);
 	}
