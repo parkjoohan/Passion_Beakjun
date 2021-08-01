@@ -1,4 +1,5 @@
 package BaekJoon;
+
 import java.util.*;
 
 public class 달팽이는올라가고싶다_2869 {
@@ -16,5 +17,6 @@ public class 달팽이는올라가고싶다_2869 {
 			day++;
 		
 		System.out.println(day);
+		sc.close();
 	}
 }
