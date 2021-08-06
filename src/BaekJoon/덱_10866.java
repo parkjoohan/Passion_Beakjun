@@ -5,50 +5,56 @@ import java.io.*;
 
 public class 덱_10866 {
 
-	public static void main(String[] args) {
-		Deque<Integer> deque = new ArrayDeque<Integer>();
-		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		LinkedList<String> dq = new LinkedList<>();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
 		
-		for(int i=0; i<T; i++) {
-			String s = sc.next();
-			
-			switch(s) {
-			case "push_front":{
-				deque.addFirst(sc.nextInt());
+		StringBuilder sb = new StringBuilder();
+		for(int i=0; i<n; i++) {
+			String[] s = br.readLine().split(" ");
+			switch(s[0]) {
+			case "push_back":
+				dq.offerLast(s[1]);
 				break;
-			}
-			case "push_back":{
-				deque.addLast(sc.nextInt());
+			case "push_front":
+				dq.offerFirst(s[1]);
 				break;
-			}
-			case "pop_front":{
-				
+			case "front":
+				if(dq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(dq.peekFirst()).append("\n");
 				break;
-			}
-			case "pop_back":{
-				
+			case "back":
+				if(dq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(dq.peekLast()).append("\n");
 				break;
-			}
-			case "size":{
-				
+			case "size":
+				sb.append(dq.size()).append("\n");
 				break;
-			}
-			case "empty":{
-				
+			case "empty":
+				if(dq.isEmpty())
+					sb.append("1\n");
+				else
+					sb.append("0\n");
 				break;
-			}
-			case "front":{
-				
+			case "pop_front":
+				if(dq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(dq.pollFirst()).append("\n");
 				break;
-			}
-			case "back":{
-				
+			case "pop_back":
+				if(dq.isEmpty())
+					sb.append("-1\n");
+				else
+					sb.append(dq.pollLast()).append("\n");
 				break;
-			}
 			}
 		}
-
+		System.out.println(sb);
 	}
-
 }
