@@ -38,36 +38,36 @@ public class 탑_2493 {
     //마지막 기지국이 나보다 크면 그놈이 나의 정답이다. break
     //마지막 기지국이 나보다 작으면 지워버린다.
     //왼쪽을 매번 헤매면서 보지 않기 위해서 새로운 기지국을 만날때마다 기억한다.
-    public static void main(String[] args) throws NumberFormatException, IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
+        int T = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
-        Stack<Integer> heightStack = new Stack<Integer>();
-        Stack<Integer> numStack = new Stack<Integer>();
+        Stack<Integer> height = new Stack<Integer>();
+        Stack<Integer> num = new Stack<Integer>();
         StringBuilder sb = new StringBuilder();
-        for(int i = 1; i <= N; i++) {
-            int num = Integer.parseInt(st.nextToken());
+        for(int i = 1; i <= T; i++) {
+            int N = Integer.parseInt(st.nextToken());
 
             while(true) {
                 //기억이 없으면 0이 정답.
-                if(heightStack.isEmpty()) {
+                if(height.isEmpty()) {
                     sb.append(0).append(" ");
                     break;
                 }
                 //나보다 큰 놈이 있으면 그놈의 번호가 정답.
-                else if(heightStack.peek() >= num) {
-                    sb.append(numStack.peek()).append(" ");
+                else if(height.peek() >= N) {
+                    sb.append(num.peek()).append(" ");
                     break;
                 }
                 //나보다 작으면 갖다버려
                 else {
-                    heightStack.pop();
-                    numStack.pop();
+                    height.pop();
+                    num.pop();
                 }
             }
             //방금 만난 기지국을 기억시킨다.
-            numStack.push(i);
-            heightStack.push(num);
+            num.push(i);
+            height.push(N);
         }
         System.out.println(sb);
     }
