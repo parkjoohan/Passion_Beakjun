@@ -5,10 +5,12 @@ import java.io.*;
 public class 이진트리검색_5639 {
  
     static class Tree{
+    	// root 처음에는 null 상태
         Node root;
  
         void add(Node node, int data) {
             if (node == null) {
+            	//아무것도 없는 초기 상태 - 루트 노드 생성 
                 root = new Node(data);
             } else {
                 if (data > node.data) {
