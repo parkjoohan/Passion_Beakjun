@@ -57,7 +57,7 @@ public class 도영이가만든맛있는음식_2961 {
 	static int[] S;        // 신맛
 	static int[] B;     // 쓴맛
 	static int min;        // 신맛과 쓴맛이 가장 작은 요리
-
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
     
