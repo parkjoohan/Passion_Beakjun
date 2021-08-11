@@ -73,7 +73,7 @@ public class 도영이가만든맛있는음식_2961 {
 		cooking(0, 1, 0);
 		System.out.println(min);
 	}
-
+	
 	private static void cooking(int index, int sumS, int sumB) {
 		if(index == N) {
 			// 아무 재료도 선택하지 않았을 경우: 공집합
