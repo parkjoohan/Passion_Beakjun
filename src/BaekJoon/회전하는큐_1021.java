@@ -18,6 +18,7 @@ public class 회전하는큐_1021 {
 	
 		for(int i=1; i<=M; i++) {
 			int num = sc.nextInt();	
+			// 덱에서 뽑으려나 숫자 위치 찾기
 			int index = list.indexOf(num);
 			int middle = list.size() / 2;
 			
