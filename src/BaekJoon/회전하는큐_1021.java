@@ -17,8 +17,7 @@ public class 회전하는큐_1021 {
 			list.add(i);
 	
 		for(int i=1; i<=M; i++) {
-			int num = sc.nextInt();
-			
+			int num = sc.nextInt();	
 			int index = list.indexOf(num);
 			int middle = list.size() / 2;
 			
