@@ -1,6 +1,8 @@
 package BaekJoon;
 
-import java.util.*;
+
+// 부분집합_ver1
+/*import java.util.*;
 
 public class 일곱난쟁이_2309 {
 
@@ -51,4 +53,90 @@ public class 일곱난쟁이_2309 {
 		cnt--;
 		powerSet(idx+1);
 	}
+}*/
+
+
+
+//부분집합_ver2
+/*import java.util.*;
+ 
+public class 일곱난쟁이_2309 {
+ 
+    static int people[] = new int[9];
+    static int right_people[] = new int[7];
+    static boolean check = false;
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+      
+        // 난쟁이들의 키 입력
+        for (int i = 0; i < 9; i++) 
+        	people[i] = sc.nextInt();
+        
+        process(0, 0, 0);
+    }
+
+    //idx : 난쟁이의 위치, cnt : 뽑은 난쟁이의 수, sum : 뽑힌 난쟁이들 키의 합
+    public static void process(int idx, int cnt, int sum) {
+        // 키의 합이 100인 일곱 난쟁이가 다 뽑힌 상태면 더이상 경우의 수를 확인할 필요가 없으므로 return
+        if(check) 
+        	return;
+        // 일곱 난쟁이가 뽑히면
+        if(cnt == 7) {
+            // 키의 합이 100이 되는지 확인
+            if(sum == 100) {
+                // 키의 합이 100이라면 난쟁이들의 키를 오름차순으로 정렬 후 출력
+                Arrays.sort(right_people);
+                for (int i = 0; i < 7; i++) 
+                    System.out.println(right_people[i]);
+                check = true;
+            }
+            return;
+        }
+        if(idx >= 9) 
+        	return;
+        // 일곱 난쟁이가 뽑히기도 전에 키의 합이 100을 초과하면 return
+        if(sum > 100) 
+        	return;
+    
+        right_people[cnt] = people[idx];
+        process(idx + 1, cnt + 1, sum + people[idx]);
+        process(idx + 1, cnt, sum);
+    }   
+}*/
+
+
+
+//비트마스크 
+import java.util.*;
+ 
+public class 일곱난쟁이_2309 {
+    static int[] arr;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        arr = new int[9];
+        
+        for(int i=0; i<9; i++)
+            arr[i] = sc.nextInt();
+        // 오름차순 출력을 위해 미리 정렬해두기
+        Arrays.sort(arr);
+        
+        for(int i=0; i<(1 << 9); i++) {
+            int sum = 0;
+            // bit(1) 개수가 7개일 경우
+            if(Integer.bitCount(i)==7) {
+                for(int j=0; j<9; j++) {
+                    //j만큼 1을 이동하여 i와 and 연산 결과가 1이라면(0보다 크다면)
+                    if((1 << j&i) > 0) 
+                    	sum+=arr[j];
+                }
+                if(sum==100) {
+                    for(int j=0; j<9; j++) 
+                        if((1<<j&i)>0) 
+                        	System.out.println(arr[j]);
+                    break;
+                }
+            }
+        }
+    }
 }
