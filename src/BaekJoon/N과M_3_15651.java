@@ -1,6 +1,6 @@
 package BaekJoon;
 
-// 중복순
+// 중복순열
 import java.util.*;
 import java.io.*;
 
