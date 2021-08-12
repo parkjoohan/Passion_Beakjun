@@ -1,9 +1,9 @@
 package BaekJoon;
 
-// 조합
+// 중복조합
 import java.util.Scanner;
 
-public class N과M_2_15650 {
+public class N과M_4_15652 {
 	static int N, M;
 	public static int[] arr;
 	public static boolean[] check;
@@ -17,31 +17,22 @@ public class N과M_2_15650 {
  
 		arr = new int[M];
 		check = new boolean[N];
-		Result(0);
+		Result(1, 0);
  
 	}
  
-	public static void Result(int idx) {
+	public static void Result(int cnt, int idx) {
 		if (idx == M) {
-			for(int i=0; i<M-1; i++) {
-				if(arr[i] > arr[i+1])
-					return;
-			}
-			
-			for (int num : arr) {
-				System.out.print(num + " ");
+			for (int i = 0; i < M; i++) { 
+				System.out.print(arr[i] + " ");
 			}
 			System.out.println();
 			return;
 		}
  
-		for (int i = 0; i < N; i++) {
-			if (!check[i]) {
-				check[i] = true;
-				arr[idx] = i + 1;
-				Result(idx + 1);
-				check[i] = false;
-			}
+		for (int i = cnt; i <= N; i++) {
+				arr[idx] = i;
+				Result(i, idx + 1);	
 		}
 	}
 }

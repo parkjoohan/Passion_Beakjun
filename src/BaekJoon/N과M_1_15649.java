@@ -51,6 +51,7 @@ public class N과M_1_15649 {
 	}	
 }*/
 
+// 순열
 import java.util.Scanner;
 
 public class N과M_1_15649 {
