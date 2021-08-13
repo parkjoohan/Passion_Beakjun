@@ -1,123 +1,77 @@
 package BaekJoon;
 
-/*import java.io.*;
 import java.util.*;
+import java.io.*;
 
 public class 치킨배달_15686 {
-	public static int L, C;
-	public static StringBuilder sb;
-	public static char[] words;
-	public static int[] number;
+	static int N, M;
+	static int[][] map;
+	static int result = Integer.MAX_VALUE;
+	
+	static ArrayList<Site> home = new ArrayList();
+	static ArrayList<Site> market = new ArrayList();
+	static boolean[] check; // 뽑은 치킨집 체크
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		L = Integer.parseInt(st.nextToken());
-		C = Integer.parseInt(st.nextToken());
+		N = Integer.parseInt(st.nextToken());
+		M = Integer.parseInt(st.nextToken());
 		
-		words = new char[C];
+		map = new int[N][N];
 		
-		st = new StringTokenizer(br.readLine(), " ");
-		for (int i = 0; i < C; ++i) {
-			words[i] = st.nextToken().charAt(0);
+		for(int i=0; i<N; i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j=0; j<N; j++) {
+				map[i][j] = Integer.parseInt(st.nextToken());
+				
+				if(map[i][j]==1)
+					home.add(new Site(i,j));
+				else if(map[i][j]==2)
+					market.add(new Site(i,j));
+			}			
 		}
 		
-		// 암호를 이루는 알파벳이 정렬되어 증가하는 순서로 배열되있을 것으로 추측되므로
-		// 우선 정렬을 해준다.
-		Arrays.sort(words);
+		check = new boolean[market.size()];
+		// M개의 치킨집을 뽑는다
+		function(0, 0);
+		System.out.println(result);
 		
-		sb = new StringBuilder("");
-		combination(0, 0, "");
-		
-		System.out.println(sb);
 	}
 	
-	public static void combination(int cnt, int idx, String s) {
-		// 주어진 길이만큼 암호가 만들어지면
-		if (cnt == L) {
-			// 모음은 1개 이상
-			int vowelCnt = 0;
-			// 자음을 2개 이상
-			int consonantsCnt = 0;
-			for (int i = 0; i < L; ++i) {
-				if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o' || s.charAt(i) == 'u') {
-					vowelCnt++;
-				}
-				else {
-					consonantsCnt++;
-				}
-			}
-
-			// 모음, 자음 조건 체크
-			// 증가하는 순서는 이미 원본 알파벳들을 순서대로 정렬했으므로 상관 X
-			if (vowelCnt >= 1 && consonantsCnt >= 2) {
-				sb.append(s).append("\n");
-			}
-			return;
-		}
-		
-		// 알파벳 암호 조합을 찾는다.
-		for (int i = idx; i < C; ++i) {
-			combination(cnt + 1, i + 1, s + Character.toString(words[i]));
-		}
+	static void function(int idx, int cnt) {
+		if(idx == M) { 
+            int sum = 0; 
+            for(int i = 0; i < home.size(); i++) {
+                int min = Integer.MAX_VALUE;
+                for(int j = 0; j < market.size(); j++) {
+                	if(check[j] == true) { 
+                		int distance = Math.abs(home.get(i).x - market.get(j).x)
+                				+ Math.abs(home.get(i).y - market.get(j).y);
+                		min = Math.min(min, distance);
+                	}
+                }
+                sum += min;
+            }
+            result = Math.min(sum, result);
+            return;
+        }
+        for(int i = cnt; i < market.size(); i++) {
+            if(check[i] == false) {
+            	check[i] = true;
+            	function(idx + 1, i + 1);
+                check[i] = false;
+            }
+        }
 	}
-}*/
 
-
-import java.io.*;
-import java.util.*;
-
-public class 치킨배달_15686 {
-	public static int L, C;
-	public static char[] words;
-	public static int[] number;
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);		
-		L = sc.nextInt();
-		C = sc.nextInt();
-		words = new char[C];
+	static class Site {
+		int x, y;
 		
-		for (int i = 0; i < C; ++i) {
-			words[i] = sc.next().charAt(i);
-		}
-		
-		// 암호를 이루는 알파벳이 정렬되어 증가하는 순서로 배열되있을 것으로 추측되므로
-		// 우선 정렬을 해준다.
-		Arrays.sort(words);
-		
-		sb = new StringBuilder("");
-		combination(0, 0, "");
-		
-		System.out.println(sb);
-	}
-	
-	public static void combination(int cnt, int idx, String s) {
-		// 주어진 길이만큼 암호가 만들어지면
-		if (cnt == L) {
-			// 모음은 1개 이상
-			int vowelCnt = 0;
-			// 자음을 2개 이상
-			int consonantsCnt = 0;
-			for (int i = 0; i < L; ++i) {
-				if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o' || s.charAt(i) == 'u') {
-					vowelCnt++;
-				}
-				else {
-					consonantsCnt++;
-				}
-			}
-			
-			// 모음, 자음 조건 체크
-			// 증가하는 순서는 이미 원본 알파벳들을 순서대로 정렬했으므로 상관 X
-			if (vowelCnt >= 1 && consonantsCnt >= 2) {
-				sb.append(s).append("\n");
-			}
-			return;
-		}
-		
-		// 알파벳 암호 조합을 찾는다.
-		for (int i = idx; i < C; ++i) {
-			combination(cnt + 1, i + 1, s + Character.toString(words[i]));
+		public Site(int x, int y) {
+			this.x = x;
+			this.y = y;
 		}
 	}
 }
