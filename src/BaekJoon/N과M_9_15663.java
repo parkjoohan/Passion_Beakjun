@@ -1,7 +1,6 @@
 package BaekJoon;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class N과M_9_15663 {
 	static int N, M;
@@ -32,20 +31,23 @@ public class N과M_9_15663 {
  
 	public static void Result(int idx) {
 		if (idx == M) {
-			for (int num : result) 
-				sb.append(num + " ");
+			for (int i = 0; i < M; i++) 
+				sb.append(result[i]).append(" ");
 			sb.append("\n");
 			return;
 		}
-		int before=0;
-		for (int i = 0; i < N; i++) {
-			if (check[i])continue;
-			else if(!(check[i] && (i==0 || before !=arr[i]))){
-				before =arr[i];	
-				result[idx] = arr[i];
-				check[i] = true;
-				Result(idx + 1);
-				check[i] = false;
+		else {
+			int before=0;	// 이전 값
+			for (int i = 0; i < N; i++) {
+				if (check[i])	// 뽑았던 거일때
+					continue;
+				else if(before!=arr[i]){
+					check[i] = true;
+					result[idx] = arr[i];
+					before = arr[i];
+					Result(idx + 1);
+					check[i] = false;
+				}
 			}
 		}
 	}
