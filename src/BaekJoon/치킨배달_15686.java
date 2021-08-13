@@ -1,6 +1,6 @@
 package BaekJoon;
 
-import java.util.*;
+/*import java.util.*;
 import java.io.*;
 
 public class 치킨배달_15686 {
@@ -73,5 +73,84 @@ public class 치킨배달_15686 {
 			this.x = x;
 			this.y = y;
 		}
+	}
+}*/
+
+
+import java.util.*;
+
+//5 5
+//1 2 0 0 0
+//1 2 0 0 0
+//1 2 0 0 0
+//1 2 0 0 0
+//1 2 0 0 0
+public class 치킨배달_15686 {
+	static class Point{
+		int r,c;
+		Point(int r, int c){
+			this.r = r;
+			this.c = c;
+		}
+	}
+	static int N;
+	static int M;
+	static int[][] map;
+	static List<Point> houses = new ArrayList<>();
+	static List<Point> chickens = new ArrayList<>();
+	static Point[] sel;
+	static int ans = 987654321;
+	//chickens갯수 중에 M개를 고를거임.
+	private static void combination(int cnt,int start) {
+		if(cnt == M) {
+			//각 집별로 M개의 선택된 치킨집 중 가장 가까운 치킨집까지의 거리를 구해서
+			//다 더한다.
+			int sum = 0;
+			for(int i = 0; i < houses.size(); i++) {
+//				Point house = houses.get(i);
+//				sum += (Math.abs(house.r - chicken.r) + Math.abs(house.c - chicken.c));
+				int tmp = 987654321;
+				Point house = houses.get(i);
+				for(int j = 0; j < M; j++) {
+					Point chicken = sel[j];
+					int dist = (Math.abs(house.r - chicken.r) 
+							+ Math.abs(house.c - chicken.c));
+					tmp = Math.min(tmp, dist);
+				}
+				sum += tmp;
+			}
+			
+			//그 다 더한값이 젤 작으면 그게 정답
+			ans = Math.min(ans, sum);
+			return;
+		}
+		// start 위치의 수부터 가능한 수 모두 고려
+		for (int i = start; i < chickens.size(); i++) { // i : 인덱스
+			sel[cnt] = chickens.get(i);
+			// 다음 자리순열 뽑으로 gogo
+			combination(cnt+1,i+1);
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		N = sc.nextInt();
+		M = sc.nextInt();
+		sel = new Point[M];
+		map = new int[N][N];
+		for(int i = 0; i < N; i++) {
+			for(int j = 0; j < N; j++) {
+				map[i][j] = sc.nextInt();
+				if( map[i][j] == 2 ) {
+					chickens.add(new Point(i, j));
+				}
+				else if( map[i][j] == 1 )
+					houses.add(new Point(i, j));
+			}
+		}
+		combination(0, 0);
+		System.out.println(ans);
+		
 	}
 }
