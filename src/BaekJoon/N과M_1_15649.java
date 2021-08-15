@@ -56,7 +56,7 @@ import java.util.Scanner;
 
 public class N과M_1_15649 {
  
-	public static int[] arr;
+	public static int[] arr; 
 	public static boolean[] check;
  
 	public static void main(String[] args) {
