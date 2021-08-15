@@ -87,7 +87,7 @@ public class N과M_1_15649 {
 				arr[idx] = i + 1;
 				Result(N, M, idx + 1);
 				check[i] = false;
-			}
+			} 
 		} 
 	}
 }
