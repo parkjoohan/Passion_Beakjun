@@ -44,7 +44,7 @@ public class 안전영역_2468 {
 					}
 				}
 			}
-			max = Math.max(max,  cnt);o
+			max = Math.max(max,  cnt);
 		}
 		System.out.println(max);
 	}
