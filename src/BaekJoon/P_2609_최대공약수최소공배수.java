@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 최대공약수최소공배수_2609 {
+public class P_2609_최대공약수최소공배수 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

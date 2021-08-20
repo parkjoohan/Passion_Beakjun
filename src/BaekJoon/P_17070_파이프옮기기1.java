@@ -71,7 +71,7 @@ public class 파이프옮기기1_17070 {
 
 import java.util.*;
 
-public class 파이프옮기기1_17070 {
+public class P_17070_파이프옮기기1 {
 	static int N;
 	static int[][] map;
 	static int ans;

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 피보나치수5_10870 {
+public class P_10870_피보나치수5 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		long[] arr = new long[91];

@@ -1,7 +1,7 @@
 package BaekJoon;
 
 import java.util.*;
-public class 회전하는큐_1021 {
+public class P_1021_회전하는큐 {
 	public static void main(String[] args) {
 		
 		// 1번 연산 : pollFirst();

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 팩토리얼_10872 {
+public class P_10872_팩토리얼 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int T =sc.nextInt();

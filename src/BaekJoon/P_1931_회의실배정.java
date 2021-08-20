@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 회의실배정_1931 {
+public class P_1931_회의실배정 {
 
 	static class Meeting implements Comparable<Meeting> {
 		int start, end;

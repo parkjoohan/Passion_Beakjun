@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 카드2_2164 {
+public class P_2164_카드2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Queue<Integer> queue = new LinkedList<Integer>();

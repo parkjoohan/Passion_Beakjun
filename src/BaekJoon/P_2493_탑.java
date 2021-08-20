@@ -33,7 +33,7 @@ public class 탑_2493 {
 import java.io.*;
 import java.util.*;
 
-public class 탑_2493 {
+public class P_2493_탑 {
     //기억이 없다는 것은.. 내 신호를 받아줄 녀석이 없다는거다. break
     //마지막 기지국이 나보다 크면 그놈이 나의 정답이다. break
     //마지막 기지국이 나보다 작으면 지워버린다.

@@ -88,7 +88,7 @@ class Tree {
 	
 }
 
-public class 트리순회_1991 {
+public class P_1991_트리순회 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 크로아티아알파벳_2941 {
+public class P_2941_크로아티아알파벳 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

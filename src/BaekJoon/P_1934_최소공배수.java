@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 최소공배수_1934 {
+public class P_1934_최소공배수 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

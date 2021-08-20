@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.Scanner;
 
-public class 행렬제곱_10830 {
+public class P_10830_행렬제곱 {
  
 	final static int MOD = 1000;
 	public static int N;

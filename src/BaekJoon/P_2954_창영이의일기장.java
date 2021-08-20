@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 창영이의일기장_2954 {
+public class P_2954_창영이의일기장 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

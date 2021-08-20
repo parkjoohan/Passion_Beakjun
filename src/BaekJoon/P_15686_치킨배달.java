@@ -85,7 +85,7 @@ import java.util.*;
 //1 2 0 0 0
 //1 2 0 0 0
 //1 2 0 0 0
-public class 치킨배달_15686 {
+public class P_15686_치킨배달 {
 	static class Point{
 		int r,c;
 		Point(int r, int c){

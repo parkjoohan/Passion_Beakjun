@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 피보나치수_2747 {
+public class P_2747_피보나치수 {
 //	public static void main(String[] args) {
 //		Scanner sc = new Scanner(System.in);
 //		int N = sc.nextInt();
