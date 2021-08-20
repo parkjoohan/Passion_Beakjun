@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 종이의개수_1780 {
+public class P_1780_종이의개수 {
 	 
 		static int N;
 		static int[][] board;

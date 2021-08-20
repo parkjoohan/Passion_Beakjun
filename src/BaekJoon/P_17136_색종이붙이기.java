@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
  
-public class 색종이붙이기_17136 {
+public class P_17136_색종이붙이기 {
 
 	static int N=10;
 	static int[][] arr;

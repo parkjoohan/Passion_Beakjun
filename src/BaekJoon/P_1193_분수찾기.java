@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 분수찾기_1193 {
+public class P_1193_분수찾기 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int T = sc.nextInt();

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 상수_2908 {
+public class P_2908_상수 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 수정렬하기_2750 {
+public class P_2750_수정렬하기 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

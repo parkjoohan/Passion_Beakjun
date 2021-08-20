@@ -1,7 +1,7 @@
 package BaekJoon;
 
 import java.util.*;
-public class 시험감독_13458 {
+public class P_13458_시험감독 {
 
 	public static void main(String[] args) {
 

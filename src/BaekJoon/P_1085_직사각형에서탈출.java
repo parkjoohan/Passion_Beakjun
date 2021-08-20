@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 직사각형에서탈출_1085 {
+public class P_1085_직사각형에서탈출 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

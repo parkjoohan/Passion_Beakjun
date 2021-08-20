@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 설탕배달_2839 {
+public class P_2839_설탕배달 {
     public static void main(String[] args){
         
         Scanner sc = new Scanner(System.in);

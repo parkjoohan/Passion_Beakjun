@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 음계_2920 {
+public class P_2920_음계 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[] arr = new int[8];

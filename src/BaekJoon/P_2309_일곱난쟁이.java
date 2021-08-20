@@ -110,7 +110,7 @@ public class 일곱난쟁이_2309 {
 //비트마스크 
 import java.util.*;
  
-public class 일곱난쟁이_2309 {
+public class P_2309_일곱난쟁이 {
     static int[] arr;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

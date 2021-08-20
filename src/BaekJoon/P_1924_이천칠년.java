@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 이천칠년_1924 {
+public class P_1924_이천칠년 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

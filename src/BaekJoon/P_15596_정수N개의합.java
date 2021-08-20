@@ -1,6 +1,6 @@
 package BaekJoon;
 
-public class 정수N개의합_15596 {
+public class P_15596_정수N개의합 {
 	long sum(int[] a) {
 		long sum = 0;
 	

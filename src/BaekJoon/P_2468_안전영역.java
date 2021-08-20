@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 안전영역_2468 {
+public class P_2468_안전영역 {
 
 	static int N, cnt, max;		// 안전 지역
 	static int[][] map;

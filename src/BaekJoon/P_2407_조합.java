@@ -3,7 +3,7 @@ package BaekJoon;
 import java.util.*;
 import java.io.*;
 
-public class 조합_2407 {
+public class P_2407_조합 {
 
 	static int N, M;
 	static int totalCnt;

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 상근날드_5543 {
+public class P_5543_상근날드 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

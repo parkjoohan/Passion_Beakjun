@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 섬의개수_4963 {
+public class P_4963_섬의개수 {
     static int[][] map;
     static int W, H;
     public static void main(String[] args) {

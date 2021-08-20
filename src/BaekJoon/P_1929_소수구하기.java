@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.Scanner;
 
-public class 소수구하기_1929 {
+public class P_1929_소수구하기 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

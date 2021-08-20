@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 직각삼각형_4153 {
+public class P_4153_직각삼각형 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		

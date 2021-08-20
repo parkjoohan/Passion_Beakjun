@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.io.*;
  
-public class 이진트리검색_5639 {
+public class P_5639_이진트리검색 {
  
     static class Tree{
     	// root 처음에는 null 상태

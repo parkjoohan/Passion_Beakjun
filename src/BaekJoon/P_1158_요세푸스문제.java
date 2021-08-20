@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 요세푸스문제_1158 {
+public class P_1158_요세푸스문제 {
 
 	public static void main(String[] args) {
 		Queue<Integer> q = new LinkedList<Integer>();

@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 알파벳_1987 {
+public class P_1987_알파벳 {
 
 	static int R, C, max = 0;
 	static int[][] arr;

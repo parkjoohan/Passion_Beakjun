@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 스위치켜고끄기_1244 {
+public class P_1244_스위치켜고끄기 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();

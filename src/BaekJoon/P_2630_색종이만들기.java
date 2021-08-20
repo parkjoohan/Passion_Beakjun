@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 색종이만들기_2630 {
+public class P_2630_색종이만들기 {
 	
 	static int[][] arr;
 	static int BLUE=0, WHITE=0;

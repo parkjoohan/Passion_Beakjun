@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class 재귀함수가뭔가요_17478 {
+public class P_17478_재귀함수가뭔가요 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
