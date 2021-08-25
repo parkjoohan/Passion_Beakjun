@@ -6,15 +6,14 @@ public class P_2941_크로아티아알파벳 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String s = sc.next();
-		String[] arr = new String[s.length()];
-		String[] arr2 = {"c=", "c-", "dz=", ""};
+		String[] str = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=","z="};
 		
-		for(int i=0; i<s.length(); i++) {
-			arr[i] = s.substring(2*i,2*i+2);
+		String a = sc.nextLine();
+		
+		for(int i=0; i<str.length; i++) {
+			if(a.contains(str[i]))
+				a = a.replace(str[i], " ");
 		}
-		
-
+		System.out.println(a.length());
 	}
-
 }
