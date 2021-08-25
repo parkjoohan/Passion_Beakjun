@@ -3,73 +3,77 @@ package BaekJoon;
 import java.io.*;
 import java.util.*;
 
-/*public class dijkstra {
-	
-	static int V, E, K;
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		V = sc.nextInt();	// 정점의 개수
-		E = sc.nextInt(); 	// 간선의 개수
-		K =sc.nextInt();	// 시작 정점의 번호(
-		
-		
-	}
-}*/
-
 public class P_1753_최단경로 {
-
+	static class Edge{
+		int vertex;
+		int weight;
+		Edge(int vertex, int weight){
+			this.vertex = vertex;
+			this.weight = weight;
+		}
+	}
 	public static void main(String[] args) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(in.readLine().trim());
-		int V = Integer.parseInt(st.nextToken()); //정점 갯수
-		int start = 0;
-		int end =  V-1; //도착점 인덱스
-		final int INFINITY = Integer.MAX_VALUE;
-		
-		int[][] matrix = new int[V][V];
-		int[] distance = new int[V];	// 갱신되는 거리들을 저장할 배열 
-		boolean[] visited = new boolean[V];		// 확보된 정점을 저장하는 배열
-		
-		for(int i=0; i<V; ++i){
-			st = new StringTokenizer(in.readLine().trim(), " ");
-			for(int j=0; j<V; ++j){
-				matrix[i][j] = Integer.parseInt(st.nextToken());
-			}
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int V = Integer.parseInt(st.nextToken()); //정점의 개수
+		int E = Integer.parseInt(st.nextToken()); //간선의 개수
+		int K = Integer.parseInt(br.readLine())-1; //시작 정점(정점 번호가 1번부터 시작함)
+		List<Edge>[] adj = new ArrayList[V];
+		for(int i = 0; i < V; i++)
+			adj[i] = new ArrayList<Edge>();
+		//간선의 정보를 입력받자.
+		for(int i = 0; i < E; i++) {
+			st = new StringTokenizer(br.readLine());
+			int from = Integer.parseInt(st.nextToken())-1;//출발점, 번호는 1부터니까 배열인덱스맞게 -1
+			int to = Integer.parseInt(st.nextToken())-1;//도착점
+			int weight = Integer.parseInt(st.nextToken());//가중치
+			//출발점정점이 갖는 인접정보에 도착점의 정보를 넣어준다.
+			adj[from].add(new Edge(to, weight));
 		}
+		//dijkstra준비
+		//확보된 정점을 체크할 배열
+		boolean[] check = new boolean[V];
+		//거리를 기록할 배열
+		int[] dist = new int[V];
+		Arrays.fill(dist, Integer.MAX_VALUE);
+		dist[K] = 0;
 		
-		Arrays.fill(distance, INFINITY);
-		distance[start] = 0;	// 시작 지점의 dist를 0으로 준다.
-		
-		int min=0, current=0;
-		for(int i=0; i<V; ++i){
-			//a단계 : 방문하지 않은 정점들 중 최소가중치의 정점 선택
-			min = INFINITY;
-			for(int j=0; j<V; ++j){
-				if(!visited[j] && distance[j] < min){
-					min = distance[j];
-					current = j;
+		for(int i = 0; i < V; i++) {
+			//이번에 확보할 정점을 찾는다.
+			//check되지 않았으면서(아직 미확보)
+			//dist값이 젤 작은 정점의 번호를 찾자.
+			int min = Integer.MAX_VALUE;
+			int index = -1;
+			for(int j = 0; j < V; j++) {
+				if(!check[j] && min > dist[j]) {
+					min = dist[j];
+					index = j;
 				}
 			}
-			visited[current] = true; // 선택 정점 방문 처리
-			if(current == end){ // 선택 정점이 도착정점이면 탈출.
+			//찾아진 정점이 없다는 것은 더이상 경로가 존재하지 않음
+			if( index == -1 )
 				break;
-			}
+			//확보로 체크하고
+			check[index] = true;
+			//확보된 정점으로부터 확보되지않은 정점으로 경로가 존재한다면 거리 갱신
 			
-			//b단계: current정점을 경유지로 하여 갈수 있는 다른 방문하지 않은 정점들에 대한 처리(갱신)
-			for(int c=0; c<V; ++c){
-				// 확보하지 않았으면서 !visited[c]
-				
-				// 나와 경로가 존재하고 matrix[current][c] != 0
-				 
-				// 해당 정점까지의 미리 알려진 거리가 (distance[c])
-				// 이번에 선택된 정점까지 거리(min) + 해당지점까지 가는 거리 (matrix[current][c]) 
-				// 보다 작으면 갱신
-				if(!visited[c] && matrix[current][c] != 0
-						&&  distance[c] > min+matrix[current][c]){
-					distance[c] = min+matrix[current][c];
-				}
+			//이 정점으로부터 모든 경로를 탐색
+			for(Edge next : adj[index]) {
+				//이미 확보된 곳으로 가는 경로는 패스
+				if( check[next.vertex] )
+					continue;
+				//이미 알려진 경로가, 확보된 정점으로부터 가는 거리보다 길면 갱신
+				if( dist[next.vertex] > dist[index] + next.weight )
+					dist[next.vertex] = dist[index] + next.weight;
 			}
 		}
-		System.out.println(distance[end]);	
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < V; i++) {
+			if(dist[i] == Integer.MAX_VALUE)
+				sb.append("INF").append("\n");
+			else
+				sb.append(dist[i]).append("\n");
+		}
+		System.out.println(sb);
 	}
 }
