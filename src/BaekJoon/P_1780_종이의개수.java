@@ -63,9 +63,9 @@ public class P_1780_종이의개수 {
 				for (int j = c; j < c + size; j++) {
 					if (color != board[i][j]) {
 						return false;
+					}
 				}
 			}
+			return true;
 		}
-		return true;
-	}
 }
