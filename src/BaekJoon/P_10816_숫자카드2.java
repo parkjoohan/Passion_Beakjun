@@ -70,6 +70,8 @@ public class P_10816_숫자카드2 {
 		for (int i = 0; i < M; i++) {
 			sb.append(arr[sc.nextInt()+10000000]).append(" ");
 		}
+		
 		System.out.println(sb);
+		
 	}
 }
