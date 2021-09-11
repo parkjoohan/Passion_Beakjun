@@ -14,17 +14,18 @@ public class P_10709_기상캐스터 {
 			for (int j = 0; j < W; j++) {
 				if(str.charAt(j)=='.' && cnt==0)
 					System.out.print(-1+" ");
+				
 				else if(str.charAt(j)=='.' && cnt!=0) {
 					System.out.print(cnt+" ");
 					cnt++;
 				}
+				
 				else if(str.charAt(j)=='c') {
 					System.out.print(0+" ");
 					cnt=1;
 				}
 			}
 			System.out.println();
-			
 			cnt=0;
 		}
 	}
