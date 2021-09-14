@@ -27,7 +27,7 @@ import java.util.*;
 		System.out.print(sb); 
 	}   
 }*/
-
+ 
 public class P_7795_먹을것인가먹힐것인가 {
 
 	static int T, N, M;
