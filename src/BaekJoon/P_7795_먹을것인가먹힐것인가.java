@@ -60,7 +60,7 @@ public class P_7795_먹을것인가먹힐것인가 {
 				for (int j : arr2) {
 					if(i>j) {
 						cnt++; 
-					}
+					} 
 					else {
 						break;
 					}
