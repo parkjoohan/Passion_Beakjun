@@ -14,7 +14,7 @@ public class P_1940_주몽 {
 		for (int i = 0; i < N; i++) {
 			arr[i] = sc.nextInt();
 		}
-	
+	 
 		int cnt = 0;
 		
 		// start를 차롇대로 증가시키며 반복

@@ -24,3 +24,4 @@ public class P_1463_1로만들기 {
 		System.out.println(dp[N]);
 	} 
 }
+ 

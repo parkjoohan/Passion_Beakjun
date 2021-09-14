@@ -16,7 +16,7 @@ import java.util.*;
 		int count = 0; 
 		
 		for (int i : A) 
-			for (int j : B) { 
+			for (int j :  B) { 
 				if (i<=j) 
 					break; 
 				else 
