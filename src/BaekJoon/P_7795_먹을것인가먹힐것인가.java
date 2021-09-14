@@ -68,5 +68,5 @@ public class P_7795_먹을것인가먹힐것인가 {
 			} 
 			System.out.println(cnt);
 		}
-	}
+	} 
 }
