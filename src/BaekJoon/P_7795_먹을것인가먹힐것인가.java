@@ -55,7 +55,7 @@ public class P_7795_먹을것인가먹힐것인가 {
 			Arrays.sort(arr1);
 			Arrays.sort(arr2);
 			
-			// start를 차롇대로 증가시키며 반복
+			// start를 차롇대로 증가시키며 반복 
 			for(int i : arr1) {
 				for (int j : arr2) {
 					if(i>j) {
