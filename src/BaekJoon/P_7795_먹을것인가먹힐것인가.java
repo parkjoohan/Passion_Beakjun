@@ -30,26 +30,30 @@ import java.util.*;
  
 public class P_7795_먹을것인가먹힐것인가 {
 
-	static int T, N, M;
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		T = sc.nextInt();
+	public static void main(String[] args) throws IOException {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    StringBuilder sb = new StringBuilder();
+		int T = Integer.parseInt(br.readLine());
 		
 		for (int tc = 0; tc < T; tc++) {
-			N = sc.nextInt();
-			M = sc.nextInt();
-			
+			String[] str = br.readLine().split(" ");
+			int N = Integer.parseInt(str[0]);
+			int M = Integer.parseInt(str[1]);
 			int[] arr1 = new int[N];
 			int[] arr2 = new int[M];
+			int cnt = 0;
 			
+			str = br.readLine().split(" ");
 			for (int i = 0; i < N; i++) {
-				arr1[i] = sc.nextInt();
+				arr1[i] = Integer.parseInt(str[i]);
 			}
+			str = br.readLine().split(" ");
 			for (int i = 0; i < M; i++) {
-				arr2[i] = sc.nextInt();
+				arr2[i] = Integer.parseInt(str[i]);
 			}
-			
-			int cnt = 1;
+					
+			Arrays.sort(arr1);
+			Arrays.sort(arr2);
 			
 			// start를 차롇대로 증가시키며 반복
 			for(int i : arr1) {
@@ -64,6 +68,5 @@ public class P_7795_먹을것인가먹힐것인가 {
 			}
 			System.out.println(cnt);
 		}
-		sc.close();
 	}
 }
