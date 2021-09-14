@@ -28,4 +28,4 @@ public class P_1940_주몽 {
 		}
 		System.out.println(cnt);
 	}
-}
+} 

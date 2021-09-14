@@ -25,7 +25,7 @@ import java.util.*;
 			sb.append(count+"\n"); 
 		} 
 		System.out.print(sb); 
-	} 
+	}   
 }*/
 
 public class P_7795_먹을것인가먹힐것인가 {
