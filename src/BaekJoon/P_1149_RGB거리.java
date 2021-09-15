@@ -21,4 +21,4 @@ public class P_1149_RGB거리 {
 		}
 		System.out.println(Math.min(dp[N][0], Math.min(dp[N][1], dp[N][2])));
 	}
-}
+} 
