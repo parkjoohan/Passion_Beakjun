@@ -18,4 +18,4 @@ public class P_1912_연속합 {
 		}
 		System.out.println(max);
 	}
-}
+} 
