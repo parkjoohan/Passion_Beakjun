@@ -18,4 +18,4 @@ public class P_11726_2XN타일링 {
 		}
 		System.out.println(dp[N]);		
 	}
-}
+} 
