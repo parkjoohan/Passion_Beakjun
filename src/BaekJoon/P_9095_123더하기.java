@@ -23,4 +23,4 @@ static int dp[] = new int [11];
 			System.out.println(dp[N]);	
 		}		
 	}
-}
+} 
