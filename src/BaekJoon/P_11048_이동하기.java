@@ -20,4 +20,4 @@ public class P_11048_이동하기 {
 		}
 		System.out.println(arr[N][M]);
 	}
-}
+} 
