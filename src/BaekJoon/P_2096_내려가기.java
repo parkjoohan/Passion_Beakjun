@@ -34,4 +34,4 @@ public class P_2096_내려가기 {
         }
         System.out.println(max+" "+min);
     }
-}
+} 
