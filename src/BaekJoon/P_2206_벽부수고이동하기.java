@@ -27,7 +27,7 @@ public class P_2206_벽부수고이동하기 {
 	
 	public static int bfs(int x, int y) {
 		Queue<Node> q = new LinkedList<>();
-		q.add(new Node(x,y,0,0));
+		q.add(new Node(x,y,1,0));
 		visited[x][y][0] = true;
 		visited[x][y][1] = true;
 		
