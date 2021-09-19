@@ -1,13 +1,16 @@
 package BaekJoon;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class P_1929_소수구하기 {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-		int b = sc.nextInt();
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s = br.readLine();
+		StringTokenizer st = new StringTokenizer(s);
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
 		
 		for(int i=a; i<b; i++) {
 			int cnt=0;
