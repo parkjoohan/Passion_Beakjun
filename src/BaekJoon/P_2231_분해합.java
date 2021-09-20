@@ -6,18 +6,23 @@ public class P_2231_분해합 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String s =sc.next();
-		char[] arr = new char[s.length()];
+		int N = sc.nextInt();
+		int res=0;
 		
-		for(int i=0; i<s.length(); i++) {
-			arr[i] = s.charAt(i);
+		for (int i = 0; i < N; i++) {
+			int num=i;
+			int sum=0;
+			
+			while(num!=0) {
+				sum+=num%10;
+				num/=10;
+			}
+			
+			if(sum+i==N) {
+				res=i;
+				break;
+			}
 		}
-		
-		for(int j=0; j<arr.length; j++) {
-		//	arr2 = Integer.parseInt(arr); 
-		}
-		
-
+		System.out.println(res);
 	}
-
 }
