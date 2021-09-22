@@ -24,7 +24,7 @@ public class P_11054_가장긴바이토닉부분수열 {
 			
 		}
 		
-		for (int i = N-1; i > 0; i--) {
+		for (int i = N-1; i >= 0; i--) {
 			LIS2[i]=1;
 			for (int j = N-1; j > i; j--) {
 				if(arr[j]<arr[i] && LIS2[i]<LIS2[j]+1)
