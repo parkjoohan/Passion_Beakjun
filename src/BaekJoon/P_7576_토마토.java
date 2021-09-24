@@ -3,69 +3,77 @@ package BaekJoon;
 import java.util.*;
 public class P_7576_토마토 {
 
-	static int N, M, cnt=0; 
-	static int max = Integer.MIN_VALUE;
+	static int N, M; 
 	static int[][] arr;
-	static boolean[][] visited;
-	static int[] dx = { 1, 0, -1, 0 };
-	static int[] dy = { 0, 1, 0, -1 };
+	static int max = Integer.MIN_VALUE;
+	static int[] dx = { -1, 1, 0, 0 };
+	static int[] dy = { 0, 0, -1, 1 };
+	static Queue<tomato> q;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
 		M = sc.nextInt();
+		N = sc.nextInt();
 		arr = new int[N][M];
-		visited = new boolean[N][M];
+		q = new LinkedList<tomato>();
 		
 		for (int i = 0; i < N; i++) { 
 			for (int j = 0; j < M; j++) {
 				arr[i][j] = sc.nextInt();
+				// 익은 토마토는 큐에 넣기
+				if(arr[i][j]==1)
+					q.add(new tomato(i,j));
 			}
 		}
-		visited[0][0] = true;
-		bfs(0,0);
-		System.out.println(max);
+		System.out.println(bfs());
 	}
 
-	public static void bfs(int x, int y) {
-		Queue<int[]> q = new LinkedList<int[]>();
+	public static int bfs() {
+		while (!q.isEmpty()) { 
+			tomato t = q.remove();
+			
+			int x = t.x;
+			int y = t.y;
+			// 동, 서, 남, 북 탐색
+			for (int i = 0; i < 4; i++) { 
+				int X = x + dx[i];
+				int Y = y + dy[i];
+ 
+				// 범위 안에서 안 익은 토마토는 익은 토마토로 추가
+				if(X>=0 && Y>=0 && X<N && Y<M) {
+					if(arr[X][Y]==0) {
+						q.add(new tomato(X,Y));
+					
+						// 익은 날짜를 알기 위해 전 값에 +1
+						arr[X][Y] = arr[x][y]+1;
+					}
+				}
+			}
+		}
 		
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
-				if(arr[i][j] == 1) {
-					q.add(new int[] {i,j});
-				}
-			}
-		}
- 
-		while (!q.isEmpty()) { 
-			int[] R = q.poll();
-			
-			// 동, 서, 남, 북 탐색
-			for (int i = 0; i < 4; i++) { 
-				int X = R[0] + dx[i];
-				int Y = R[1] + dy[i];
- 
-				// 미로 밖, 벽, 이미 탐색을 한 곳 제외
-				if (X<0 || X>=N || Y<0 || Y>=M || visited[X][Y] || arr[X][Y] == 0) 
-					continue;
- 
-				// 다음 탐색 지점을 큐에 추가
-				q.add(new int[] { X, Y });
-				// 다음 탐색 지점 탐색처리
-				visited[X][Y] = true;
-				// 다음 탐색 지점의 비용을 현재 좌표 + 1 로 변경
-				arr[X][Y] = arr[R[0]][R[1]] + 1;
-			}
-		}
-		for(int i=0; i<N; i++) {
-			for(int j=0; j<M; j++) {
-				if(arr[i][j] == 0) {
-					System.out.println(-1);
-					System.exit(0);
-				}
+				// 안 익은 토마토
+				if(arr[i][j] == 0) 
+					return -1;
 				max = Math.max(max, arr[i][j]);
 			}
 		}
 		
+		// 토마토 모두 익었을 때
+		if(max==1)
+			return 0;
+		// 전체 일수는 최대 날짜 -1
+		else
+			return max-1;
+	}
+}
+
+class tomato {
+	int x;
+	int y;
+	
+	tomato(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 }
