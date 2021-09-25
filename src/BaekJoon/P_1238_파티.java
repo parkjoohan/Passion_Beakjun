@@ -6,9 +6,9 @@ import java.util.*;
 public class P_1238_파티 {
 	static final int INF = Integer.MAX_VALUE;
 	static int N, M, X;
-	static int[] distance;
+	static int[] dist;
 	static boolean[] visit;
-	static LinkedList<Edge>[] adjList;
+	static LinkedList<Edge>[] List;
 	
 	private static class Edge implements Comparable<Edge> {
 		int vertex, weight;
@@ -27,8 +27,8 @@ public class P_1238_파티 {
 		M = Integer.parseInt(st.nextToken());	// 도로의 수
 		X = Integer.parseInt(st.nextToken());	// 도착 마을
 		
-		adjList = new LinkedList[N+1];
-		for(int i=1; i<=N; i++) adjList[i] = new LinkedList<>();
+		List = new LinkedList[N+1];
+		for(int i=1; i<=N; i++) List[i] = new LinkedList<>();
 		
 		for(int i=1; i<=M; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -36,7 +36,7 @@ public class P_1238_파티 {
 			int to = Integer.parseInt(st.nextToken());
 			int weight = Integer.parseInt(st.nextToken());
 			
-			adjList[from].add(new Edge(to, weight));
+			List[from].add(new Edge(to, weight));
 		}
 		
 		int res = 0;
@@ -48,28 +48,27 @@ public class P_1238_파티 {
 	}
 	
 	private static int dijkstra(int start, int end) {
-		PriorityQueue<Edge> pq = new PriorityQueue<>();
-		distance = new int[N+1];
-		Arrays.fill(distance, INF);
-		visit = new boolean[N+1];
-		
-		pq.add(new Edge(start, 0));
-		distance[start] = 0;
-		
-		while(!pq.isEmpty()) {
-			Edge now = pq.poll();
-			
-			if(visit[now.vertex]) continue;
-			visit[now.vertex] = true;
-			
-			for(Edge next : adjList[now.vertex]) {
-				if(visit[next.vertex]) continue;
-				if(distance[now.vertex] + next.weight < distance[next.vertex]) {
-					distance[next.vertex] = distance[now.vertex] + next.weight;
-					pq.add(new Edge(next.vertex, distance[next.vertex]));
-				}
-			}
-		}
-		return distance[end];
+		dist = new int[N + 1];
+        Arrays.fill(dist, INF);
+        dist[start] = 0;
+        PriorityQueue<Edge> queue = new PriorityQueue<>();
+        queue.add(new Edge(start, 0));
+        while (!queue.isEmpty()) {
+        	Edge node = queue.poll();
+            int vertex = node.vertex;
+            int weight = node.weight;
+            if (dist[vertex] < weight) { 
+                continue;
+            }
+            for (int i = 0; i < List[vertex].size(); i++) {
+                int vertex2 = List[vertex].get(i).vertex;
+                int weight2 = List[vertex].get(i).weight + weight;
+                if (dist[vertex2] > weight2) { 
+                    dist[vertex2] = weight2;
+                    queue.add(new Edge(vertex2, weight2));
+                }
+            }
+        }
+        return dist[end];
 	}
 }
