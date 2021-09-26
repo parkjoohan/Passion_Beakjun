@@ -3,7 +3,7 @@ package BaekJoon;
 import java.io.*;
 import java.util.*;
 
-/*public class P_10825_국영수 {
+public class P_10825_국영수 {
    public static class Student implements Comparable<Student>{
       String name;
       int kor;
@@ -19,21 +19,29 @@ import java.util.*;
 
       @Override
       public int compareTo(Student o) {
+    	 // 1. 국어점수가 감소하는 순서로
          if(this.kor < o.kor) {
             return 1;
-         } else if(this.kor == o.kor) {
+         } 
+         // 국어 점수가 같으면 영어 점수가 증가하는 순서로
+         else if(this.kor == o.kor) {
             if(this.eng > o.eng) {
                return 1;
-            } else if(this.eng == o.eng) {
+            } 
+            // 국어점수, 영어점수가 같다면 수학 점수가 감소하는 순서로
+            else if(this.eng == o.eng) {
                if(this.math < o.math) {
                   return 1;
-               } else if(this.math == o.math) {
+               } 
+               // 모든 점수가 같으면 이름이 사전 순으로 증가하는 순서로
+               else if(this.math == o.math) {
                   if(this.name.compareTo(o.name) > 0) {
                      return 1;
                   }
                }
             }
          }
+         // 그 외는 원래대로
          return -1;
       }
    }
@@ -57,9 +65,9 @@ import java.util.*;
          System.out.println(li.get(i).name);
       }
    }
-}*/
+}
 
-public class P_10825_국영수 {
+/*public class P_10825_국영수 {
 	 
     public static void main(String args[]) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -98,4 +106,4 @@ public class P_10825_국영수 {
  
         }
     }
-}
+}*/
