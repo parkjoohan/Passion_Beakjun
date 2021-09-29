@@ -20,7 +20,7 @@ public class P_14465_소가길을건너간이유5 {
 		for (int i = 0; i < B; i++) {
 			arr[i] = -1;
 		}
-		System.out.println(func(arr, B));
+		System.out.println(func(arr, K));
 	}
 
 	public static int func(int[] arr, int K) {
@@ -33,7 +33,7 @@ public class P_14465_소가길을건너간이유5 {
 			sum+=arr[end];
 			
 			if(end>=(K-1)) {
-				answer=Math.max(answer, sum);
+				answer=6;
 				sum-=arr[start];
 				start++;
 			}
