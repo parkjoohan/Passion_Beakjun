@@ -4,32 +4,32 @@ import java.util.*;
 
 public class P_10025_게으른백곰 {
 	
-	static int N, K;
-	static Node[] arr;
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
-		K = sc.nextInt();
-		arr = new Node[N];
+		Scanner sc= new Scanner(System.in);
+		int N = sc.nextInt();
+		int K = sc.nextInt();
+	
+		int arr[] = new int[1000001];
+	
+		for(int i=0; i<N; i++) {
+			int W = sc.nextInt();
+			int P = sc.nextInt();
+			arr[P] = W;
+		}
 		
-		for (int i = 0; i < N; i++) {
-			int g = sc.nextInt();
-			int x = sc.nextInt();
-			arr[i] = new Node(x, g);
-		}
-		Arrays.sort(arr, new Comparator<Node>() {
-			public int compare(Node o1, Node o2) {
-				return o1.xi-o2.xi;
+		int sum = 0, max = 0;
+		int window = 1 +(2*K);
+	
+		for(int i=0; i<=1000000; i++) {
+			// 초반 k-1범위 전까지는 sum을 max랑 비교하면안됨.
+			if(i >= window) {
+				sum -= arr[i-window];
 			}
-		});
-	}
-	
-	
-	static class Node {
-		int xi; int gi;
-		public Node(int xi, int gi) {
-			this.xi=xi;
-			this.gi=gi;
+			sum += arr[i];
+			if(sum > max) {
+				max = sum;
+			}
 		}
+		System.out.println(max);
 	}
 }
