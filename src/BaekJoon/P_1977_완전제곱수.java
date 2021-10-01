@@ -2,7 +2,7 @@ package BaekJoon;
 
 import java.util.*;
 
-public class P_1977_완전제곱수 {
+/*public class P_1977_완전제곱수 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt();
@@ -22,4 +22,12 @@ public class P_1977_완전제곱수 {
             System.out.println(-1);
         }
     }
+}*/
+
+public class P_1977_완전제곱수 {
+	public static void main(String[] args) {
+		System.out.println(".  .   .");
+		System.out.println("|  | _ | _. _ ._ _  _");
+		System.out.println("|/\\|(/.|(_.(_)[ | )(/.");
+	}
 }
