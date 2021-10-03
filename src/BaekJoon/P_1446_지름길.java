@@ -10,8 +10,6 @@ public class P_1446_지름길 {
 	private static int distance[];
 	private static int INF = Integer.MAX_VALUE;
 	
-	
-	
 	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);		
 		N = sc.nextInt();
