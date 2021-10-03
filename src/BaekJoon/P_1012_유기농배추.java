@@ -58,4 +58,12 @@ public class P_1012_유기농배추 {
             }
         }
     }
+    
+    static class Point {
+    	int x, y;
+    	public Point(int x, int y) {
+    		this.x=x;
+    		this.y=y;
+    	}
+    }
 }
