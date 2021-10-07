@@ -73,6 +73,7 @@ public class P_17135_캐슬디펜스 {
 		// 죽인 적의 수
 		int cnt = 0;
 
+		
 		// 적이 더 없을 때까지
 		while (enemy.size() != 0) {
 			ArrayList<Loc> kill = new ArrayList<>();
