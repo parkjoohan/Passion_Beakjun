@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException; 
 import java.io.InputStreamReader; 
 
-public class P_1018_체스판다시칠하기 { 
+public class P_1018_체스판다시칠하기 {   
 	public static void main(String[] args) throws IOException { 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
 		String[] input = br.readLine().split(" "); 
@@ -43,7 +43,7 @@ public class P_1018_체스판다시칠하기 {
 			} 
 		}
 		
-		int result2 = 0; 
+		int result2 = 0;  
 		temp = 'W'; 
 		for (int i = x; i < x + 8; i++) { 
 			if (chessboard[i][y] != temp) 
