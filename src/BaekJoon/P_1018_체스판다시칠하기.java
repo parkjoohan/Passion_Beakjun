@@ -11,7 +11,7 @@ public class P_1018_체스판다시칠하기 {
 		int n = Integer.parseInt(input[0]); 
 		int m = Integer.parseInt(input[1]); 
 		char[][] chessboard = new char[n][m];
-		
+		 
 		for (int row = 0; row < n; row++) { 
 			String color = br.readLine(); 
 			for (int col = 0; col < color.length(); col++) { 
