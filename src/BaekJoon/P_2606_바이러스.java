@@ -30,7 +30,8 @@ public class P_2606_바이러스 {
 				cnt++;
 				dfs(i);
 			}
-		}
+		} 
+		
 		return cnt;
-	}
+	}  
 }
