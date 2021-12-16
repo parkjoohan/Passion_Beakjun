@@ -5,7 +5,7 @@ import java.util.*;
 public class P_2644_촌수계산 {
 
 	static int N, M, num1, num2;
-	static int res = Integer.MIN_VALUE;
+	static int res = -1;
 	static ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>() ;
 	static boolean visited[];
 	public static void main(String[] args) {
@@ -14,9 +14,9 @@ public class P_2644_촌수계산 {
 		num1 = sc.nextInt();
 		num2 = sc.nextInt();
 		M = sc.nextInt();
-		visited = new boolean[N];
+		visited = new boolean[N+1];
 		
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i <= N; i++) {
 			list.add(new ArrayList<>());
 		}
 		
