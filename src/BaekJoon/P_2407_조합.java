@@ -11,7 +11,7 @@ import java.math.*;
 		int N = sc.nextInt();
 		int M = sc.nextInt();
 		
-		System.out.println(comb(N, M));
+		System.out.println(comb(N-1, M-1));
 	}
 	
 	public static int comb(int r, int c) {
