@@ -2,33 +2,40 @@ package BaekJoon;
 
 import java.util.*;
 import java.io.*;
+import java.math.*;
+
+/*public class P_2407_조합 {
+
+	public static void main(String[] args) throws IOException {
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+		
+		System.out.println(comb(N, M));
+	}
+	
+	public static int comb(int r, int c) {
+		if(r==c||c==0)
+			return 1;
+		return comb(r-1, c-1) + comb(r-1, c);
+	}
+}*/
 
 public class P_2407_조합 {
 
-	static int N, M;
-	static int totalCnt;
-	static int[] numbers;
 	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-		numbers = new int[M];
-		totalCnt=0;
-				
-		Combination(0,0);
-		System.out.println(totalCnt);
-	}
-	
-	private static void Combination(int cnt, int start) {
-		if(cnt == M) {
-			return;
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+		
+		BigInteger n1 = BigInteger.ONE;
+		BigInteger n2 = BigInteger.ONE;
+		
+		for (int i = 0; i < M; i++) {
+			n1 = n1.multiply(new BigInteger(String.valueOf(N-i)));
+			n2 = n2.multiply(new BigInteger(String.valueOf(i+1)));
 		}
 		
-		for(int i=start; i<=N; i++) {
-			numbers[cnt] = i;
-			Combination(cnt+1, i+1);
-			totalCnt++;
-		}
+		System.out.println(n1.divide(n2));
 	}
 }
