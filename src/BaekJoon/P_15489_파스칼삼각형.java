@@ -29,4 +29,4 @@ public class P_15489_파스칼삼각형 {
 		}
 		System.out.println(sum);
 	}
-}
+} 
