@@ -21,7 +21,7 @@ public class P_7569_토마토 {
 			this.z = z;
 		}
 	}
-
+ 
 	public static void main(String[] args) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(in.readLine());
@@ -43,9 +43,9 @@ public class P_7569_토마토 {
 					}
 				}
 			}
-		}
+		} 
 
-		// 모두 다 익어있는 경우
+		// 모두 다 익어있는 경우 
 		if (queue.size() == M * N * H) {
 			System.out.println(0);
 			return;
