@@ -1,6 +1,6 @@
 package BaekJoon;
 
-import java.io.*;
+import java.io.*;15
 import java.util.*;
 
 public class P_7569_토마토 {
