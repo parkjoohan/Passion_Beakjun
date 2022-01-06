@@ -31,6 +31,6 @@ public class P_1182_부분수열의합 {
 		// dfs 호출 시, 지금 원소를 합에 더하는 부분
 		dfs(depth+1, sum+arr[depth]);
 		// dfs 호출 시, 지금 원소를 빼고 구하는 부분
-		dfs(depth+1, sum);
+		dfs(depth+1, sum); 
 	}
 }
