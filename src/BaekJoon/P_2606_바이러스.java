@@ -18,7 +18,7 @@ public class P_2606_바이러스 {
 			int a = sc.nextInt();
 			int b = sc.nextInt();
 			map[a][b] = map[b][a] = 1;
-		}
+		} 
 		System.out.println(dfs(1));
 	}
 
