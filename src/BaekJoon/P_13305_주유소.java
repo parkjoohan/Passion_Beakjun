@@ -28,4 +28,4 @@ public class P_13305_주유소 {
 		}
 		System.out.println(sum);
 	}
-}
+} 
