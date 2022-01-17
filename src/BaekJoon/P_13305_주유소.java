@@ -24,7 +24,7 @@ public class P_13305_주유소 {
 			if(oil[i]<min)
 				min=oil[i];
 			
-			sum += (min * road[i]);
+			sum += (min * road[i]); 
 		}
 		System.out.println(sum);
 	}
