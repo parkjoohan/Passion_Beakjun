@@ -29,7 +29,7 @@ public class P_10026_정록색약 {
 			for (int j = 0; j < N; j++) {
 				if(!visited[i][j]) {
 					dfs(i,j);
-					cnt1++;
+					cnt1++; 
 				}
 			}
 		}
