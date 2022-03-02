@@ -20,8 +20,7 @@ public class P_9663_NQueen {
 	// 퀸 놓기
 	public static void nQueen(int depth) {	// 몇번째에 놓는지 알아내기 위해 depth(행)을 매개변수로 둔다
 		
-		// 유망여부 확인 : depth-1행까지 유망한지 체크
-		if(!available(depth-1))	return;		// 불가능하면 return 가능하면 지속 진행
+
 		
 		if(depth > N) {	// 모든 상황이 부합하여 마지막 행까지 둔 경우
 			cnt++;		// 모든 상황이 부합되므로 횟수로 카운트
@@ -32,7 +31,10 @@ public class P_9663_NQueen {
 		// 놓았으면 다른 퀸 놓으러 가기
 		for (int i = 1; i <= N; i++) {
 			arr[depth] = i;		// i열에 놓아보기
-			nQueen(depth+1);	// 다음 행에 놓아보기
+			// 유망여부 확인
+			if(available(depth)) {
+				nQueen(depth+1);	// 다음 행에 놓아보기
+			}
 		}
 	}
 		
