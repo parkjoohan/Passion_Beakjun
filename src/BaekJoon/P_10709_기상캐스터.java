@@ -24,6 +24,7 @@ public class P_10709_기상캐스터 {
 				}
 			}
 			System.out.println();
+			
 			cnt=0;
 		}
 	}
