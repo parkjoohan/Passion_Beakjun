@@ -12,6 +12,7 @@ public class P_10867_중복빼고정렬하기 {
 		for (int i = 0; i < N; i++) {
 			hs.add(sc.nextInt());
 		}
+		
 		ArrayList<Integer> list = new ArrayList<Integer>(hs);
 		Collections.sort(list);
 
