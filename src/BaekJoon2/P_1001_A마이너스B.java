@@ -13,5 +13,6 @@ public class P_1001_A마이너스B {
 		System.out.println(A-B);
  
 		sc.close();
+		
 	}
 }
