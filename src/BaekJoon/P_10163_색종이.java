@@ -37,5 +37,6 @@ public class P_10163_색종이 {
             bw.write(cnt + "\n");
         }
         bw.flush();
+        
     }
 }
