@@ -31,7 +31,6 @@ public class P_1926_그림 {
 				}
 			}
 		}
-		
 		System.out.println(cnt);
 		System.out.println(result);
 	}
