@@ -12,7 +12,6 @@ public class P_2579_계단오르기 {
 		int[] DP = new int[N + 1];
 		int[] arr = new int[N + 1];
  
- 
 		for (int i = 1; i <= N; i++) {
 			arr[i] =in.nextInt();
 		}
