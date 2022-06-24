@@ -2,59 +2,63 @@ package BaekJoon2;
 
 import java.util.*;
 
-public class Main {
+public class P_2583_영역구하기 {
 
-	static int N, cnt;
+	static int N,M,K, cnt=0;
 	static int[][] map;
-	static boolean[][] visited;
-	static int[] dx = {-1,1,0,0};
+	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,-1,1};
-	static ArrayList<Integer> list = new ArrayList<>();
+	static ArrayList<Integer> list;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		M = sc.nextInt();
 		N = sc.nextInt();
-		map = new int[N][N];
-		visited = new boolean[N][N];
-		cnt = 0;
+		K = sc.nextInt();
+		map = new int[M][N];
 		
-		for(int i=0; i<N; i++) {
-			String str = sc.next();
-			for(int j=0; j<N; j++) {
-				map[i][j]=str.charAt(j)-'0';
+		for (int i = 0; i < K; i++) {
+			int x1 = sc.nextInt();
+			int y1 = sc.nextInt();
+			int x2 = sc.nextInt();
+			int y2 = sc.nextInt();
+			
+			for (int j = y1; j < y2; j++) {
+				for (int k = x1; k < x2; k++) {
+					map[j][k]=1;
+				}
 			}
 		}
 		
-		for(int i=0; i<N; i++) {
-			for(int j=0; j<N; j++) {
-				if(map[i][j]==1 && !visited[i][j]) {
-					cnt=1;
-					dfs(i, j);
+		// 영역 넒이 저장
+		list = new ArrayList<>();
+		
+		for (int i = 0; i < M; i++) {
+			for (int j = 0; j < N; j++) {
+				if(map[i][j]==0) {
+					cnt = 0;
+					dfs(i,j);
 					list.add(cnt);
 				}
 			}
 		}
 		
-		Collections.sort(list);
 		System.out.println(list.size());
-		for(int num : list)
-			System.out.println(num);
+		Collections.sort(list);
+		
+		for(Integer c : list)	System.out.print(c+" ");
 	}
 	
-	public static int dfs(int x, int y) {
-		visited[x][y]=true;
+	public static void dfs(int r, int c) {
+		map[r][c] = 1;
+		cnt++;
 		
-		for(int i=0; i<4; i++) {
-			int nx = x + dx[i];
-			int ny = y + dy[i];
+		for (int i = 0; i < 4; i++) {
+			int nr = r + dx[i];
+			int nc = c + dy[i];
 			
-			if(nx>=0 && ny>=0 && nx<N && ny<N) {
-				if(map[nx][ny]==1 && !visited[nx][ny]) {
-					dfs(nx, ny);
-					cnt++;
-				}
-			}
+			if(nr>=0 && nc>=0 && nr<M && nc<N)
+				if(map[nr][nc]==0)
+					dfs(nr, nc);
 		}
-		
-		return cnt;
 	}
 }
