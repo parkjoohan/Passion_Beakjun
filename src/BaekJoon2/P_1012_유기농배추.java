@@ -2,7 +2,7 @@ package BaekJoon2;
 
 import java.util.*;
 
-public class Main {
+public class P_1012_유기농배추 {
 
 	static int T, M, N, K;
 	static int[][] map;
