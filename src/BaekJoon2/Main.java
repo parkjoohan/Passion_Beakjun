@@ -4,28 +4,32 @@ import java.util.*;
 
 public class Main {
 
-	static int T, M, N, K;
+	static int w, h, cnt;
 	static int[][] map;
 	static boolean[][] visited;
-	static int[] dx = {-1,1,0,0};
-	static int[] dy = {0,0,-1,1};
+	static int[] dx = {0,0,1,-1,-1,1,-1,1};
+	static int[] dy = {1,-1,0,0,-1,1,1,-1};
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		T = sc.nextInt();
 		
-		for(int tc=0; tc<T; tc++) {
-			M = sc.nextInt();
-			N = sc.nextInt();
-			K = sc.nextInt();
-			map = new int[M][N];
-			visited = new boolean[M][N];
-			int cnt=0;
+		while(true) {
+			w = sc.nextInt();
+			h = sc.nextInt();
+			map = new int[h][w];
+			visited = new boolean[h][w];
+			cnt=0;
 			
-			for(int i=0; i<K; i++)
-				map[sc.nextInt()][sc.nextInt()] = 1;
+			if(w==0 && h==0)
+				System.exit(0);
 			
-			for(int i=0; i<M; i++) {
-				for(int j=0; j<N; j++) {
+			for(int i=0; i<h; i++) {
+				for(int j=0; j<w; j++) {
+					map[i][j]=sc.nextInt();
+				}
+			}
+			
+			for(int i=0; i<h; i++) {
+				for(int j=0; j<w; j++) {
 					if(map[i][j]==1 && !visited[i][j]) {
 						dfs(i,j);
 						cnt++;
@@ -40,12 +44,12 @@ public class Main {
 	public static void dfs(int x, int y) {
 		visited[x][y]=true;
 		
-		for(int i=0; i<4; i++) {
+		for(int i=0; i<8; i++) {
 			int nx = x + dx[i];
 			int ny = y + dy[i];
 			
-			if(nx>=0 && ny>=0 && nx<M && ny<N) {
-				if(map[nx][ny]==1 && !visited[nx][ny])
+			if(nx>=0 && ny>=0 && nx<h && ny<w) {
+				if(map[nx][ny]==1 && !visited[nx][ny]) 
 					dfs(nx,ny);
 			}
 		}
