@@ -4,62 +4,71 @@ import java.util.*;
 
 public class Main {
 
-	static int N, M, K, cnt=0;
+	static int N;
 	static int[][] map;
+	static boolean[][] visited;
 	static int[] dx = {-1,1,0,0};
 	static int[] dy = {0,0,-1,1};
-	static ArrayList<Integer> list;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		M = sc.nextInt();
 		N = sc.nextInt();
-		K = sc.nextInt();
-		map = new int[M][N];
+		map = new int[N][N];
+		// 배열 정수 중 높이 최댓값
+		int max = 0;
+		// 안전영역 최대인 갯수
+		int result = 1;
 		
-		for(int i=0; i<K; i++) {
-			int x1 = sc.nextInt();
-			int y1 = sc.nextInt();
-			int x2 = sc.nextInt();
-			int y2 = sc.nextInt();
-			
-			for(int j=y1; j<y2; j++) {
-				for(int k=x1; k<x2; k++) {
-					map[j][k]=1;
-				}
-			}
-		}
-		
-		// 영역 넓이 저장
-		list = new ArrayList<>();
-		
-		for(int i=0; i<M; i++) {
+		for(int i=0; i<N; i++) {
 			for(int j=0; j<N; j++) {
-				if(map[i][j]==0) {
-					cnt=0;
-					dfs(i, j);
-					list.add(cnt);
-				}
+				map[i][j]=sc.nextInt();
+				if(map[i][j]>max)
+					max = map[i][j];
 			}
 		}
 		
-		Collections.sort(list);
-		System.out.println(list.size());
-		for(int num : list)
-			System.out.print(num+" ");
+		// 1부터 최대 높이까지 안전영역이 최대인 갯수 찾기
+		for(int i=1; i<=max; i++) {
+			// 각 높이마다 방문 영역 초기화
+			visited = new boolean[N][N];
+			// 각 높이마다 안전영역의 갯수 초기화
+			int cnt=0;
+			
+			for(int j=0; j<N; j++) {
+				for(int k=0; k<N; k++) {
+					// 잠기지 않고 방문하지 않은 곳
+					if(map[j][k]>i && !visited[j][k]) {
+						cnt++;
+						dfs(j,k,i);
+					}
+				}
+			}
+			result = Math.max(result, cnt);
+		}
+		System.out.println(result);
 	}
 	
-	public static void dfs(int x, int y) {
-		map[x][y]=1;
-		cnt++;
+	public static void dfs(int x, int y, int h) {
+		
+		// x, y 좌표가 지도의 범위를 벗어나는 경우
+		if(x<0 || y<0 || x>=N || y>=N)
+			return;
+		
+		// 이미 방문한 위치거나 최대 높이 이하로 잠긴 경우
+		if(visited[x][y] || map[x][y]<=h)
+			return;
+		
+		visited[x][y]=true;
 		
 		for(int i=0; i<4; i++) {
 			int nx = x + dx[i];
 			int ny = y + dy[i];
 			
-			if(nx>=0 && ny>=0 && nx<M && ny<N)
-				if(map[nx][ny]==0) {
-					dfs(nx,ny);
-				}
+			// 해당 지도 내여야함
+			if(nx>=0 && ny>=0 && nx<N && ny<N) {
+				// 잠기지 않고 방문하지 않은 곳
+				if(!visited[nx][ny] && map[nx][ny]>h)
+					dfs(nx,ny,h);
+			}
 		}
 	}
 }
