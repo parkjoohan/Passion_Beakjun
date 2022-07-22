@@ -3,7 +3,7 @@ package BaekJoon2;
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class P_10825_국영수 {
 
 	static String[][] arr;
 	static int N;
