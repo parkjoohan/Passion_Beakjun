@@ -4,34 +4,33 @@ import java.util.*;
 
 public class N과M1 {
 
-	static int N, M;
-	static int[] arr;
-	static boolean[] visited;
+	public static int[] arr;
+	public static boolean[] visited;
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
-		M = sc.nextInt();
-		visited = new boolean[N+1];
-		arr = new int[N+1];
-		
-		back(0);
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+		arr = new int[M];
+		visited = new boolean[N];
+		dfs(N, M, 0);
 	}
 	
-	private static void back(int index) {
-		if(index == M) {
-			for(int i=0; i<M; i++) 
-				System.out.print(arr[i] + " ");
+	public static void dfs(int N, int M, int depth) {
+		if(depth == M) {
+			for(int val : arr)
+				System.out.print(val + " ");
 			System.out.println();
 			return;
 		}
 		
-		for(int i=1; i<=N; i++) {
-			if(visited[i])	continue;
-			visited[i] = true;
-			arr[index] = i;
-			back(index+1);
-			visited[i] = false;
+		for(int i=0; i<N; i++) {
+			if(!visited[i]) {
+				visited[i] = true;
+				arr[depth] = i+1;
+				dfs(N, M, depth+1);
+				visited[i] = false;
+			}
 		}
 	}
 }
